@@ -1,4 +1,4 @@
-module GoDeepStack
+module  github.com/aavgoust02/GoDeepStack
 
 go 1.18
 
