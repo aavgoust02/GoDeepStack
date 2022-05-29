@@ -1,8 +1,9 @@
 package GoDeepStack
 
 import (
-	"GoDeepStack/util"
 	"fmt"
+	"github.com/aavgoust02/GoDeepStack/util"
+	"strings"
 )
 
 type ObjectDetector struct {
@@ -48,4 +49,13 @@ func (od *ObjectDetector) Detect(imagePath string) *Objects {
 	var result *Objects
 	od.SendRequest(files, params, &result)
 	return result
+}
+
+func (o *Objects) String() string {
+	sb := strings.Builder{}
+	for _, v := range o.Predictions {
+		pred := fmt.Sprintf("Detected %-10s [%.2f%%]\n", v.Label, v.Confidence*100)
+		sb.WriteString(pred)
+	}
+	return sb.String()
 }

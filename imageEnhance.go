@@ -1,8 +1,8 @@
 package GoDeepStack
 
 import (
-	"GoDeepStack/util"
 	"fmt"
+	"github.com/aavgoust02/GoDeepStack/util"
 )
 
 type ImageEnhancer struct {

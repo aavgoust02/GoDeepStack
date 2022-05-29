@@ -1,7 +1,7 @@
 package GoDeepStack
 
 import (
-	"GoDeepStack/util"
+	"github.com/aavgoust02/GoDeepStack/util"
 	"github.com/imroc/req/v3"
 	"log"
 	"net/url"
@@ -25,7 +25,7 @@ func (a *AbstractDetector) SendRequest(files *util.Files, additionalParameters *
 	}
 	request := client.SetFiles(files.Files).SetFormData(additionalParameters.Parameters).SetResult(&out)
 	response, err := request.Post(a.Endpoint())
-	check(err)
+	util.Check(err)
 	if !response.IsSuccess() {
 		log.Fatalf("Unable to run query [%d]", response.StatusCode)
 	}
